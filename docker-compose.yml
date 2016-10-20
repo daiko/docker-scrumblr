@@ -1,0 +1,13 @@
+redis:
+    image: redis:latest
+    volumes:
+        - ~/.redis:/data
+    expose:
+        - 6379
+
+scrumble:
+    build: ./scrumblr
+    ports:
+        - 80:80
+    links:
+        - redis
